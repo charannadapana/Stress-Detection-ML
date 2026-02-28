@@ -83,4 +83,11 @@ def launch_app(best_model, tfidf):
         # Optional: Live prediction while typing
         text_input.submit(predict, inputs=text_input, outputs=[output_text, probability_bar])
 
-    ui.launch()
+import os
+
+port = int(os.environ.get("PORT", 7860))
+
+ui.launch(
+    server_name="0.0.0.0",
+    server_port=port
+)
